@@ -45,7 +45,7 @@ def run_inference(
         str_row, row = dataset[i]
         output, pred = invoke(str_row, row)
 
-        result = format_out(row, str_row, pred, output)
+        result = format_out(row, pred, output)
         results.append(result)
 
     return results

@@ -5,7 +5,7 @@ from langchain_core.prompts.few_shot import FewShotPromptTemplate
 from dataset import QADataset
 
 
-FormatOut = Callable[[dict, str, Optional[str], str], dict]
+FormatOut = Callable[[dict, Optional[str], str], dict]
 
 
 @dataclass

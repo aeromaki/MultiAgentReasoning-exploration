@@ -46,9 +46,8 @@ def MEDQA_PARSE_RESULT(result: str, row: dict) -> Optional[str]:
             return pred[0]
     return None
 
-def MEDQA_FORMAT_OUT(row: dict, str_row: str, pred: Optional[str], output: str) -> dict:
+def MEDQA_FORMAT_OUT(row: dict, pred: Optional[str], output: str) -> dict:
     return {
-        'prompt_full': str_row,
         'question': row['question'],
         'options': row['options'],
         'output': output,
