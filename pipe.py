@@ -23,7 +23,9 @@ def _create_pipe(
     dataset = dataset_option.dataset()
 
     def invoke(str_row: str, row: dict) -> tuple[str, Optional[str]]:
-        result = chain.invoke({ "question": str_row }).content
+        result = chain.invoke({ "question": str_row })
+        if not isinstance(result, str):
+            result = result.content
         return result, dataset_option.parse_result(result, row)
 
     format_out = dataset_option.format_out

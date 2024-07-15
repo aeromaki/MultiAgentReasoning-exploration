@@ -4,12 +4,12 @@ from .DatasetOption import DatasetOption
 from dataset import MedQADataset
 
 
-_MEDQA_TEMPLATE = """"You are a medical doctor taking the US Medical Licensing Examination. \
+_MEDQA_TEMPLATE = """You are a medical doctor taking the US Medical Licensing Examination. \
 You need to demonstrate your understanding of basic and clinical science, medical knowledge, \
 and mechanisms underlying health, disease, patient care, and modes of therapy. Show your ability \
 to apply the knowledge essential for medical practice. Base your answer on the current and standard practices \
 referenced in medical guidelines. \
-Create a logical progression of tail questions and combine the answers to select an answer from the options here:\n\n{body}"""
+Create a logical progression of tail questions and combine the answers to select an answer from the options here:\n\n{question}"""
 MEDQA_TEMPLATE = PromptTemplate.from_template(_MEDQA_TEMPLATE)
 
 MEDQA_EXAMPLES = [
