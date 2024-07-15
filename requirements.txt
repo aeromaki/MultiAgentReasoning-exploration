@@ -1,0 +1,7 @@
+tqdm
+python-dotenv
+transformers
+datasets
+langchain
+langchain-openai
+langchain-huggingface
