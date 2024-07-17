@@ -9,7 +9,7 @@ You need to demonstrate your understanding of basic and clinical science, medica
 and mechanisms underlying health, disease, patient care, and modes of therapy. Show your ability \
 to apply the knowledge essential for medical practice. Base your answer on the current and standard practices \
 referenced in medical guidelines. \
-Create a logical progression of tail questions and combine the answers to select an answer from the options here:\n\n{question}"""
+Create a logical progression of tail questions and combine the answers to select an answer from the options\n\n{question}"""
 MEDQA_TEMPLATE = PromptTemplate.from_template(_MEDQA_TEMPLATE)
 
 MEDQA_EXAMPLES = [
@@ -56,7 +56,7 @@ def MEDQA_FORMAT_OUT(row: dict, pred: Optional[str], output: str) -> dict:
     }
 
 
-medQA_option = DatasetOption(
+OPTION = DatasetOption(
     MedQADataset,
     MEDQA_TEMPLATE,
     MEDQA_EXAMPLES,

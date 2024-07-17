@@ -1,6 +1,6 @@
 from typing import Callable, Optional
 from tqdm import tqdm
-from options import medQA_option, openAI_GPT35_option, DatasetOption, ModelOption, FormatOut
+from options import DatasetOption, ModelOption, FormatOut
 from dataset import QADataset
 import json
 
@@ -43,14 +43,15 @@ def run_inference(
 
     results = []
 
-    for i in tqdm(range(min(n_row, len(dataset.dataset)))):
-        str_row, row = dataset[i]
-        output, pred = invoke(str_row, row)
+    try:
+        for i in tqdm(range(min(n_row, len(dataset.dataset)))):
+            str_row, row = dataset[i]
+            output, pred = invoke(str_row, row)
 
-        result = format_out(row, pred, output)
-        results.append(result)
-
-    return results
+            result = format_out(row, pred, output)
+            results.append(result)
+    finally:
+        return results
 
 
 def run(

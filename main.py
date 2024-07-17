@@ -3,8 +3,8 @@ from options import *
 from pipe import run
 
 
-dataset_options = { i.name.lower(): i for i in [medQA_option] }
-model_options = { i.name.lower(): i for i in [openAI_GPT35_option, hf_Meerkat8B_option] }
+dataset_options = { i.name.lower(): i for i in [MEDQA] }
+model_options = { i.name.lower(): i for i in [OPENAI_GPT35, HF_MEERKAT_8B, HF_MEERKAT_70B] }
 
 
 def create_parser() -> argparse.ArgumentParser:
@@ -19,8 +19,8 @@ def create_parser() -> argparse.ArgumentParser:
 if __name__ == "__main__":
     args = create_parser().parse_args()
 
-    dop = dataset_options[args.dataset]
-    mop = model_options[args.model]
+    dop = dataset_options[args.dataset.lower()]
+    mop = model_options[args.model.lower()]
     n_shot = args.num_shot
     n_row = args.num_row
 
