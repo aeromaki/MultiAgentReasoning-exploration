@@ -2,6 +2,7 @@ from typing import Callable, Optional
 from tqdm import tqdm
 from options import DatasetOption, ModelOption, FormatOut
 from dataset import QADataset
+import os
 import json
 
 
@@ -62,4 +63,6 @@ def run(
 ) -> None:
     results = run_inference(dataset_option, model_option, n_shot, n_row)
 
-    json.dump(results, open(f'results/{dataset_option.name}_{model_option.name}_{n_shot}shot_{n_row}.json', 'w'))
+    filename = f"results/{dataset_option.name}_{model_option.name}_{n_shot}shot_{n_row}.json"
+    os.makedirs(os.path.dirname(filename), exist_ok=True)
+    json.dump(results, open(filename, 'w'))
