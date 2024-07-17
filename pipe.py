@@ -63,6 +63,6 @@ def run(
 ) -> None:
     results = run_inference(dataset_option, model_option, n_shot, n_row)
 
-    filename = f"results/{dataset_option.name}_{model_option.name}_{n_shot}shot_{n_row}.json"
+    filename = f"results/{dataset_option.name}_{model_option.name}_{n_shot}shot_{len(results)}.json"
     os.makedirs(os.path.dirname(filename), exist_ok=True)
     json.dump(results, open(filename, 'w'))
