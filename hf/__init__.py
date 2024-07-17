@@ -5,7 +5,7 @@ from langchain_huggingface import HuggingFacePipeline
 CACHE_DIR = "./.cache"
 
 
-def create_hf_chain(model_name: str, max_new_tokens: int = 1024) -> HuggingFacePipeline:
+def create_hf_chain(model_name: str, max_new_tokens: int = 512) -> HuggingFacePipeline:
     tokenizer = AutoTokenizer.from_pretrained(model_name, cache_dir=CACHE_DIR)
     model = AutoModelForCausalLM.from_pretrained(model_name, cache_dir=CACHE_DIR, device_map="auto")
 
