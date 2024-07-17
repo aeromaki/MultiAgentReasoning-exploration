@@ -39,7 +39,7 @@ def run_inference(
     n_shot: int,
     n_row: int
 ) -> list[dict]:
-    dataset, invoke, format_out = _create_pipe(dataset_option, model_option)
+    dataset, invoke, format_out = _create_pipe(dataset_option, model_option, n_shot)
 
     results = []
 
